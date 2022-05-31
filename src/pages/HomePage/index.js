@@ -22,22 +22,22 @@ const HomePage = () => {
     setPopularMovies(moviePopular);
     setUpcomingMovies(movieUpcoming);
     setTopRatedMovies(movieTopRated);
-    setNowPlaying(movieNowPlaying);      
+    setNowPlaying(movieNowPlaying);
+    setLoading(false);
   }
 
   // call API
   useEffect(() => {
     fetchData();    
-    setLoading(false);
   }, []);
   console.log(loading);
   
   // get Id list of the now playing movie to show on carousel
   useEffect(() => {
-    loading === false && nowPlaying ? console.table(nowPlaying.map((movie) => movie.id)) : console.log("Loading...");
-    
-    // loading === false && nowPlaying ? setIdList(nowPlaying.map((movie) => movie.id)) : console.log("Loading...");
-  }, []);
+    // loading === false && nowPlaying ? console.table(nowPlaying.map((movie) => movie.id)) : console.log("Loading...");
+
+    loading === false && nowPlaying ? setIdList(nowPlaying.map((movie) => movie.id)) : console.log("Loading...");
+  }, [nowPlaying]);
 
   console.table(idList);
   
