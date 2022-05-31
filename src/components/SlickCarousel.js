@@ -1,12 +1,14 @@
-import React, { Component } from "react";
+import React, {Component, useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./custom-carousel.css";
 
+
 export default class SimpleSlider extends Component {
-    render() {
-        const { nowPlaying } = this.props;
+    render() {  
+        const { idList } = this.props;
+        console.log(idList);
         const settings = {
             dots: true,
             infinite: true,
@@ -15,6 +17,7 @@ export default class SimpleSlider extends Component {
             slidesToScroll: 1, 
             centerMode: true,
         };
+
         return (
             <div id="movie-slider">
                 <h2> Single Item</h2>
@@ -24,7 +27,7 @@ export default class SimpleSlider extends Component {
                         <p>Some representative placeholder content for the first slide.</p>
                         <img src="./logo192.png" className="d-block w-50 m-auto" alt="..." />
                     </div>
-                    <div>
+                    {/* <div>
                         <h5>First slide label</h5>
                         <p>Some representative placeholder content for the first slide.</p>
                         <img src="./logo192.png" className="d-block w-50 m-auto" alt="..." />
@@ -43,7 +46,7 @@ export default class SimpleSlider extends Component {
                         <h5>First slide label</h5>
                         <p>Some representative placeholder content for the first slide.</p>
                         <img src="./logo192.png" className="d-block w-50 m-auto" alt="..." />
-                    </div>
+                    </div> */}
                 </Slider>
             </div>
         );

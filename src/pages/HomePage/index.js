@@ -10,7 +10,8 @@ const HomePage = () => {
   const [upcomingMovies, setUpcomingMovies] = useState([]);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [nowPlaying, setNowPlaying] = useState([]);
-  const [loading, setLoading] = useState(null);
+  const [idList, setIdList] = useState([]);; 
+  const [loading, setLoading] = useState(true);
 
   async function fetchData() {
     const moviePopular = await MovieService.getMovieByType(MOVIE_POPULAR);
@@ -21,29 +22,31 @@ const HomePage = () => {
     setPopularMovies(moviePopular);
     setUpcomingMovies(movieUpcoming);
     setTopRatedMovies(movieTopRated);
-    setNowPlaying(movieNowPlaying);
-
-    /* const popularData = moviePopular.data.results;
-    const upcomingData = movieUpcoming.data.results;
-    const topRatedData = movieTopRated.data.results;
-    const nowPlaying = movieNowPlaying.data.results;
-
-    setPopularMovies(popularData);
-    setUpcomingMovies(upcomingData);
-    setTopRatedMovies(topRatedData);
-    setNowPlaying(nowPlaying); */
+    setNowPlaying(movieNowPlaying);      
   }
 
+  // call API
   useEffect(() => {
-    fetchData();
+    fetchData();    
+    setLoading(false);
+  }, []);
+  console.log(loading);
+  
+  // get Id list of the now playing movie to show on carousel
+  useEffect(() => {
+    loading === false && nowPlaying ? console.table(nowPlaying.map((movie) => movie.id)) : console.log("Loading...");
+    
+    // loading === false && nowPlaying ? setIdList(nowPlaying.map((movie) => movie.id)) : console.log("Loading...");
   }, []);
 
+  console.table(idList);
+  
 
   return (
     <div>
       {/* render with condition. Only rendering when the data is ready */}
       {/* {nowPlaying && <Carousel nowPlaying={nowPlaying}/>} */}
-      {nowPlaying && <SimpleSlider nowPlaying={nowPlaying} />}
+      {<SimpleSlider idList={idList} />}
     </div>
   )
 }

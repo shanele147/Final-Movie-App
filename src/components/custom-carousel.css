@@ -1,6 +1,7 @@
 .slick-prev {
     left: 55px;
 }
+
 .slick-next {
     right: 55px;
 }
@@ -26,13 +27,12 @@
     font-size: 2.5rem;
     line-height: 1;
     speak: never;
-    
-        display: inline-block;
-        text-decoration: inherit;
+    display: inline-block;
+    text-decoration: inherit;
     opacity: .75;
     color: white;
     /* For safety - reset parent styles, that can break glyph codes*/
-        font-variant: normal;
+    font-variant: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -43,4 +43,17 @@
 
 .slick-next:before {
     content: '\e801';
+}
+
+.slick-dots li button:before {
+    font-family: 'slick';
+    font-size: 0.5rem;
+    line-height: 1.25rem;
+    opacity: 0.4;
+    color: #fff;
+}
+
+.slick-dots li.slick-active button:before {
+    opacity: 0.9;
+    color: #fff;
 }
