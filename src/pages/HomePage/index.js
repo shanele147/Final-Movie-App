@@ -2,7 +2,6 @@ import "./HomePage.css";
 import React, { useState, useEffect } from 'react'
 import MovieService from '../../services/MovieService';
 import { MOVIE_UPCOMING, MOVIE_TOP_RATED, MOVIE_POPULAR, MOVIE_NOW_PLAYING } from '../../services/MovieService';
-import Carousel from "../../components/Carousel";
 import SimpleSlider from "../../components/SlickCarousel";
 
 const HomePage = () => {
@@ -10,7 +9,8 @@ const HomePage = () => {
   const [upcomingMovies, setUpcomingMovies] = useState([]);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [nowPlaying, setNowPlaying] = useState([]);
-  const [idList, setIdList] = useState([]);; 
+  const [idList, setIdList] = useState([]);
+  // const [posterPaths, setPosterPaths] = useState([]);
   const [loading, setLoading] = useState(true);
 
   async function fetchData() {
@@ -31,22 +31,27 @@ const HomePage = () => {
     fetchData();    
   }, []);
   console.log(loading);
-  
+
+ 
   // get Id list of the now playing movie to show on carousel
   useEffect(() => {
-    // loading === false && nowPlaying ? console.table(nowPlaying.map((movie) => movie.id)) : console.log("Loading...");
-
     loading === false && nowPlaying ? setIdList(nowPlaying.map((movie) => movie.id)) : console.log("Loading...");
-  }, [nowPlaying]);
+    // loading === false && nowPlaying ? setPosterPaths(nowPlaying.map((movie) => movie.poster_path)) : console.log("Loading...");
+    /* async function fetchPosterPath(id) {
+      const path = await MovieService.getMoviePoster(id);
+    } */
 
-  console.table(idList);
+    
+
+  }, [nowPlaying]);
+  
   
 
   return (
     <div>
       {/* render with condition. Only rendering when the data is ready */}
       {/* {nowPlaying && <Carousel nowPlaying={nowPlaying}/>} */}
-      {<SimpleSlider idList={idList} />}
+      {<SimpleSlider nowPlaying={nowPlaying} idList={idList} />}
     </div>
   )
 }

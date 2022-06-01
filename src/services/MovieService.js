@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_KEY, base_URL } from "../constant/const-key";
+import { API_KEY, base_URL, image_url } from "../constant/const-key";
 export const MOVIE_UPCOMING = "upcoming";
 export const MOVIE_POPULAR = "popular";
 export const MOVIE_TOP_RATED = "top_rated";
@@ -11,8 +11,8 @@ const MovieService = {
         return axios.get(`${base_URL}/${type}?api_key=${API_KEY}&language=en-US&page=1`)
             .then(response => response.data.results);
     },
-    getMoviePoster: (id) => { 
-        return axios.get(`${base_URL}/${id}?api_key=${API_KEY}&language=en-US`)
+    getMoviePoster: (poster_path) => { 
+        return axios.get(`${image_url}/${poster_path}?api_key=${API_KEY}&language=en-US`)
             .then(response => response.data);
     }
  } 
