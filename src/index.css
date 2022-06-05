@@ -1,15 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,400;1,700&family=Montserrat:wght@200;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;400;700&family=Maitree:wght@300&display=swap');
+
+html {
+  --lh: 1.4rem;
+  line-height: var(--lh);
+}
+
+a, button, p {
+  all: unset;  
+}
 
 body {
   margin: 0;
-  font-family: "Montserrat", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Maitree',"Lucida Sans", "Lucida Sans Regular",
+    "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #012636;
+  background-color: #051622;
+  color: #ffffff;
+  font-weight: 400;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
