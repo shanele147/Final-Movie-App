@@ -15,7 +15,8 @@ body {
     "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #26282b;
+  background-color: #26282b
+;
   color: #ffffff;
   font-weight: 400;
 }
