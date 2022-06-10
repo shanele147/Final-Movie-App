@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <>
       {/* The rest of your app goes here */}
-      <nav className="navbar navbar-expand-md navbar-dark bg-nav">
+      <nav className="navbar navbar-expand-md navbar-dark bg-nav fixed-top">
         <div className="container-fluid">
           <button
             className="navbar-toggler"
@@ -30,13 +30,16 @@ export default function Header() {
             id="navbarNavAltMarkup"
           >
             <div className="navbar-nav">
-              <Link className="nav-link" to={`movie/${MOVIE_UPCOMING}`}>
+              <Link className="nav-link" to="/">
+                Home
+                </Link>
+              <Link className="nav-link" to={`/${MOVIE_UPCOMING}`}>
                 Up Coming
               </Link>
-              <Link className="nav-link" to={`movie/${MOVIE_POPULAR}`}>
+              <Link className="nav-link" to={`/${MOVIE_POPULAR}`}>
                 Popular
               </Link>
-              <Link className="nav-link" to={`movie/${MOVIE_TOP_RATED}`}>
+              <Link className="nav-link" to={`/${MOVIE_TOP_RATED}`}>
                 Top Rated
               </Link>
             </div>

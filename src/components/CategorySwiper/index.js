@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -15,29 +15,38 @@ import { API_KEY, image_url } from "../../constant/const-key";
 
 function CategorySwiper(props) {
   const { movieList, onViewMore, movieType } = props;
+  const [fadeEnd, setFadeEnd] = useState(true);
+
   movieList && console.log(movieList);
   const filerMovies =
     movieList && movieList.filter((movie) => movie.vote_average > 7);
   const movies = filerMovies.map((movie, index) => {
     const { title, id, poster_path, release_date } = movie;
     return (
-      <>
         <SwiperSlide key={index}>
           <img
             src={`${image_url}${poster_path}?api_key=${API_KEY}&language=en-US)`}
             onClick={() => onViewMore(id)}
           ></img>
         </SwiperSlide>
-      </>
     );
   });
+
+  const onReachEndHandler = () => { 
+    setFadeEnd(false);
+  }
+  const onSlideChangeHandler = () => {
+    if (!fadeEnd) { 
+      setFadeEnd(true);
+    }    
+   }
   return (
     <div className="container-fluid category-swiper">
       <div className="row">
         <div className="col-12 col-md-12 col-sm-12">
           <h1>{movieType.split("_").join(" ").toUpperCase()}</h1>
         </div>
-        <div className="col-11 mask-overflow">
+        <div className="col-12 mask-overflow">
           <Swiper
             navigation={true}
             slidesPerView={5}
@@ -48,11 +57,14 @@ function CategorySwiper(props) {
             }}
             modules={[FreeMode, Pagination, Navigation]}
             className="mySwiper"
+            onReachEnd={onReachEndHandler}
+            onSlideChange={onSlideChangeHandler}
           >
             {movies}
+            {fadeEnd && <div className="fadeEnd"></div>}
           </Swiper>
         </div>
-        <div className="col-1"></div>
+        
       </div>
     </div>
   );

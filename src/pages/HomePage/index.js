@@ -27,7 +27,7 @@ const HomePage = () => {
   }; */
 
   const onViewMore = (id) => {
-    navigation(`/movieDetail/${id}`);
+    navigation(`/movies/${id}`);
   };
 
   async function fetchData() {
@@ -35,18 +35,16 @@ const HomePage = () => {
     const moviePopular = await MovieService.getMovieByType(MOVIE_POPULAR);
     const movieUpcoming = await MovieService.getMovieByType(MOVIE_UPCOMING);
     const movieTopRated = await MovieService.getMovieByType(MOVIE_TOP_RATED);
-    const movieNowPlaying = await MovieService.getMovieByType(
-      MOVIE_NOW_PLAYING
-    );
+    const movieNowPlaying = await MovieService.getMovieByType(MOVIE_NOW_PLAYING);
 
     setPopularMovies(moviePopular);
     setUpcomingMovies(movieUpcoming);
     setTopRatedMovies(movieTopRated);
     setNowPlaying(movieNowPlaying);
-
-    setTimeout(() => {
+    setLoading(false);
+    /* setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 2000); */
   }
 
   // call API
@@ -63,18 +61,18 @@ const HomePage = () => {
         <Loader />
       ) : (
         [
-          <HeroSlider nowPlaying={nowPlaying} onViewMore={onViewMore} />,
-          <CategorySwiper
+          <HeroSlider key={MOVIE_NOW_PLAYING} nowPlaying={nowPlaying} onViewMore={onViewMore} />,
+            <CategorySwiper key={ MOVIE_UPCOMING}
             movieList={upcomingMovies}
             onViewMore={onViewMore}
             movieType={MOVIE_UPCOMING}
           />,
-          <CategorySwiper
+            <CategorySwiper key={ MOVIE_POPULAR}
             movieList={popularMovies}
             onViewMore={onViewMore}
             movieType={MOVIE_POPULAR}
           />,
-          <CategorySwiper
+            <CategorySwiper key={ MOVIE_TOP_RATED}
             movieList={topRatedMovies}
             onViewMore={onViewMore}
             movieType={MOVIE_TOP_RATED}

@@ -12,8 +12,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/movie/:movieType" element={<MovieCategory />} />
-        <Route path="/movieDetail/:id" element={<MovieDetail />} />
+        <Route path="/:movieCategory" element={<MovieCategory />} />
+        <Route path="/movies/:id" element={<MovieDetail />} />
         {/* * đại diện cho tất cả các page không phải trang homepage hoặc movie detail */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

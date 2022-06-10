@@ -7,7 +7,7 @@ import { API_KEY, image_url } from "../constant/const-key";
 import MovieService from "../services/MovieService";
 
 function HeroSlider(props) {
-  const { nowPlaying, onViewMore, movieType } = props;
+  const { nowPlaying, onViewMore} = props;
   //   console.log(nowPlaying);
   const settings = {
     dots: false,
@@ -16,7 +16,7 @@ function HeroSlider(props) {
     slidesToShow: 1,
     slidesToScroll: 1,
     centerMode: true,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2000,
     pauseOnHover: true,
     responsive: [
@@ -52,12 +52,12 @@ function HeroSlider(props) {
     const { title, id, overview, backdrop_path, release_date, vote_average } =
       movie;
     return (
-      <>
+      <div
+        key={index}>
         <div
           className="item-carousel"
-          key={index}
           style={{
-            backgroundImage: `url("${image_url}${backdrop_path}?api_key=${API_KEY}&language=en-US)"`,
+            backgroundImage: `url("${image_url}${backdrop_path}?api_key=${API_KEY}&language=en-US")`,
             backgroundSize: "cover",
           }}
         >
@@ -88,7 +88,7 @@ function HeroSlider(props) {
             </div>
           </div>
         </div>
-      </>
+      </div>
     );
   });
 

@@ -73,14 +73,15 @@ const MovieDetail = () => {
     const { name: castName, character, profile_path } = cast;
     return (<>
       <SwiperSlide>
-        <img src={`${image_url}${profile_path}?api_key=${API_KEY}&language=en-US)`}>
-        </img>
+          <img src={`${image_url}${profile_path}?api_key=${API_KEY}&language=en-US)`}></img>
+           {/*  <div className="card-body">
+              <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div> */}
       </SwiperSlide>
     </>);
   });
 
   return (
-    <>
       <div className="container section-wrapper">
         <div className="row">
           <div className="col-5 col-md-6 col-sm-12">
@@ -96,16 +97,15 @@ const MovieDetail = () => {
             <ul>{genreList}</ul>
             <div className="detail-overview">
               <p>{overview}</p>
-            </div>
-            <div className="visit-website">
-              <a className="btn-visit-website" href={`${homepage}`}>
-                Visit the website
-                {/* <button type="button">Visit the website</button> */}
-              </a>
-            </div>
+              <div className="visit-website">
+                <a className="btn-visit-website" href={`${homepage}`}>
+                  Visit the website
+                  {/* <button type="button">Visit the website</button> */}
+                </a>
+              </div>
+            </div>            
           </div>
           <div className="col-12 col-md-12 col-sm-12 trailer">
-            
             {trailer && (
               <iframe
                 className="youtube-trailer"
@@ -151,7 +151,6 @@ const MovieDetail = () => {
           </div>
         </div>
       </div>
-    </>
   );
 };
 

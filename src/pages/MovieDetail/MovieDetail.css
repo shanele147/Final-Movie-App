@@ -35,9 +35,9 @@ li:first-child {
   height: 100%;
   z-index: 9988;
 }
-.movie-info {
+/* .movie-info {
   position: relative;
-}
+} */
 
 .detail-title {
   color: #fb9039;
@@ -82,10 +82,11 @@ li:first-child {
 }
 .detail-overview {
   padding-top: 2rem;
+  position: relative;
 }
 .visit-website {
   position: absolute;
-  bottom: 0;
+  bottom: -50%;
   transform: translateY(-50%);
 }
 .btn-visit-website {
