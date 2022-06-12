@@ -1,4 +1,4 @@
-// import React, { Component, useEffect, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -7,7 +7,7 @@ import { API_KEY, image_url } from "../constant/const-key";
 import MovieService from "../services/MovieService";
 
 function HeroSlider(props) {
-  const { nowPlaying, onViewMore} = props;
+  const { nowPlaying, onViewMore } = props;
   //   console.log(nowPlaying);
   const settings = {
     dots: false,
@@ -16,7 +16,7 @@ function HeroSlider(props) {
     slidesToShow: 1,
     slidesToScroll: 1,
     centerMode: true,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 2000,
     pauseOnHover: true,
     responsive: [
@@ -52,28 +52,22 @@ function HeroSlider(props) {
     const { title, id, overview, backdrop_path, release_date, vote_average } =
       movie;
     return (
-      <div
-        key={index}>
+      <div key={index}>
         <div
           className="item-carousel"
           style={{
-            backgroundImage: `url("${image_url}${backdrop_path}?api_key=${API_KEY}&language=en-US")`,
+            backgroundImage: `url("${image_url}${backdrop_path}?api_key=${API_KEY}&language=en-US)"`,
             backgroundSize: "cover",
           }}
         >
           <div className="overlay">
             <div className="content-container">
-              <h1 className="big-title">{title}</h1>
+              <h2 className="big-title">{title}</h2>
               <p className="overview">{overview}</p>
               <br></br>
-              <p style={{ fontSize: "1.25rem" }}>
+              <p>
                 Release:{" "}
-                <span
-                  style={{
-                    fontWeight: "bold",
-                    color: "#ee550e",
-                  }}
-                >
+                <span style={{ fontWeight: "bold", color: "#ee550e" }}>
                   {MovieService.convertToHumanDate(release_date)}
                 </span>
               </p>
@@ -93,7 +87,7 @@ function HeroSlider(props) {
   });
 
   return (
-    <div id="movie-slider" className="w-100 m-auto">
+    <div id="movie-slider" className="w-100">
       <Slider {...settings}>{movieShowList}</Slider>
     </div>
   );

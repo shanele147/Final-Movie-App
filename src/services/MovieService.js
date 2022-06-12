@@ -22,16 +22,20 @@ const MovieService = {
       .get(`${base_URL}/${id}/videos?api_key=${API_KEY}&language=en-US`)
       .then((response) => response.data.results);
   },
+  seachMovie: (query) => { 
+    return axios.get(`${base_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1`)
+    .then((response) => response.data.results);
+  },
   getMovieCast: (id) => { 
     return axios
       .get(`${base_URL}/${id}/credits?api_key=${API_KEY}&language=en-US`)
       .then((response) => response.data.cast);
   },
-  getMovieCrew: (id) => {
+  /* getMovieCrew: (id) => {
     return axios
       .get(`${base_URL}/${id}/credits?api_key=${API_KEY}&language=en-US`)
       .then((response) => response.data.crew);
-  },
+  }, */
   convertToHumanDate: (date) => {
     return new Date(date).toLocaleDateString("UTC", {
       year: "numeric",

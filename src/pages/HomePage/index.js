@@ -35,12 +35,15 @@ const HomePage = () => {
     const moviePopular = await MovieService.getMovieByType(MOVIE_POPULAR);
     const movieUpcoming = await MovieService.getMovieByType(MOVIE_UPCOMING);
     const movieTopRated = await MovieService.getMovieByType(MOVIE_TOP_RATED);
-    const movieNowPlaying = await MovieService.getMovieByType(MOVIE_NOW_PLAYING);
+    const movieNowPlaying = await MovieService.getMovieByType(
+      MOVIE_NOW_PLAYING
+    );
 
     setPopularMovies(moviePopular);
     setUpcomingMovies(movieUpcoming);
     setTopRatedMovies(movieTopRated);
     setNowPlaying(movieNowPlaying);
+
     setLoading(false);
     /* setTimeout(() => {
       setLoading(false);
@@ -51,7 +54,7 @@ const HomePage = () => {
   useEffect(() => {
     fetchData();
   }, []);
-  console.log(loading);
+  console.log("Loading is: " + loading);
 
   return (
     <div>
@@ -61,18 +64,21 @@ const HomePage = () => {
         <Loader />
       ) : (
         [
-          <HeroSlider key={MOVIE_NOW_PLAYING} nowPlaying={nowPlaying} onViewMore={onViewMore} />,
-            <CategorySwiper key={ MOVIE_UPCOMING}
+            <HeroSlider nowPlaying={nowPlaying} onViewMore={onViewMore} key={ MOVIE_NOW_PLAYING}/>,
+          <CategorySwiper
+            key={MOVIE_UPCOMING}
             movieList={upcomingMovies}
             onViewMore={onViewMore}
             movieType={MOVIE_UPCOMING}
           />,
-            <CategorySwiper key={ MOVIE_POPULAR}
+          <CategorySwiper
+            key={MOVIE_POPULAR}
             movieList={popularMovies}
             onViewMore={onViewMore}
             movieType={MOVIE_POPULAR}
           />,
-            <CategorySwiper key={ MOVIE_TOP_RATED}
+          <CategorySwiper
+            key={MOVIE_TOP_RATED}
             movieList={topRatedMovies}
             onViewMore={onViewMore}
             movieType={MOVIE_TOP_RATED}

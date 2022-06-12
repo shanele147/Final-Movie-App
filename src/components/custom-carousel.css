@@ -71,8 +71,8 @@ button:is(.slick-arrow) {
 #movie-slider {
   color: #fff;
   /* transform: translateY(15%); */
-  padding: 4rem 0;
   cursor: pointer;
+  margin: 4rem auto;
 }
 
 .item-carousel {
@@ -181,7 +181,8 @@ div:is(.item-carousel, .overlay) {
 }
 
 .btn-view-more {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
+  font-family: "Kanit", "Helvetica Neue", Helvetica, Arial, sans-serif;
   width: max-content;
   background: #ee550e;
   padding: 0.5rem 0.75rem;

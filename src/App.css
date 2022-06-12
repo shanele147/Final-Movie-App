@@ -22,11 +22,19 @@
   color: #61dafb;
 }
 
-@media screen and (max-width:1024px) {
-  html  {
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Kanit", "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+@media screen and (max-width: 1024px) {
+  html {
     font-size: 15px;
   }
-    .section-wrapper {
-      font-size: 1.15rem;
-    }
+  .section-wrapper {
+    font-size: 1.15rem;
+  }
 }

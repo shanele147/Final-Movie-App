@@ -4,6 +4,7 @@ li {
   list-style: none;
   display: flex;
 }
+
 a:hover {
   text-decoration: none;
   color: inherit;
@@ -24,20 +25,6 @@ li:first-child {
   font-size: 1.25rem;
   line-height: 1.2;
 }
-
-.bs-header-image {
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-size: cover;
-  background-position: 50%;
-  width: 100%;
-  height: 100%;
-  z-index: 9988;
-}
-/* .movie-info {
-  position: relative;
-} */
 
 .detail-title {
   color: #fb9039;
@@ -60,14 +47,15 @@ li:first-child {
   height: 100%;
   max-height: 100%;
   border-radius: 0.4rem;
-  -webkit-box-shadow: 6px 6px 11px -2px rgb(5 42 72 / 79%);
-  -moz-box-shadow: 6px 6px 11px -2px rgb(5 42 72 / 79%);
-  box-shadow: 6px 6px 11px -2px rgb(5 42 72 / 79%);
+  -webkit-box-shadow: 4px 4px 17px -2px #101112;
+  -moz-box-shadow: 4px 4px 17px -2px #101112;
+  box-shadow: 4px 4px 17px -2px #101112;
   -webkit-border-radius: 0.4rem;
   -moz-border-radius: 0.4rem;
   -ms-border-radius: 0.4rem;
   -o-border-radius: 0.4rem;
 }
+
 /* 
 .hero-img:hover img {
   cursor: pointer;
@@ -80,15 +68,18 @@ li:first-child {
   transform: scale(1.08);
   transition: all 0.3s ease-in-out;
 }
+
 .detail-overview {
   padding-top: 2rem;
   position: relative;
 }
+
 .visit-website {
   position: absolute;
-  bottom: -50%;
-  transform: translateY(-50%);
+  bottom: -1rem;
+  transform: translateY(100%);
 }
+
 .btn-visit-website {
   display: inline-block;
   font-weight: 800;
@@ -97,6 +88,7 @@ li:first-child {
   border: 3px solid #fb9039;
   border-radius: 0.4rem;
 }
+
 .btn-visit-website:hover {
   animation: pulse 1s ease-in-out;
 }
@@ -106,8 +98,7 @@ div.trailer {
 }
 
 .activePoster {
-  background: url("/public/youtube-thumbnail.png") no-repeat center
-    center;
+  background: url("/public/youtube-thumbnail.png") no-repeat center center;
   background-size: cover;
   bottom: 0;
   left: 0;
@@ -131,18 +122,20 @@ iframe.youtube-trailer {
 }
 
 .castSwiper {
-  height: 13rem;
-  max-height: 13rem;
+  height: 20rem;
+  max-height: 20rem;
   margin-bottom: 1rem;
   margin-top: 3rem;
 }
 
 .castSwiper .swiper-wrapper {
-  height: 80%;
+  height: 85%;
 }
 
 .castSwiper .swiper-slide {
   background-color: inherit;
+  display: flex;
+  flex-direction: column;
 }
 
 .castSwiper .swiper-slide img {
@@ -152,7 +145,30 @@ iframe.youtube-trailer {
   -ms-border-radius: 0.5rem;
   -o-border-radius: 0.5rem;
   cursor: grab;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1;
 }
+
+div.cast-name {
+  width: 100%;
+  height: 32%;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(0deg, #080808, transparent 95%);
+  padding-top: 2.5rem;
+}
+
+div.cast-name h5 {
+  width: 100%;
+  transform: translateY(50%);
+  -webkit-transform: translateY(50%);
+  -moz-transform: translateY(50%);
+  -ms-transform: translateY(50%);
+  -o-transform: translateY(50%);
+}
+
 /* animation pulse */
 @keyframes pulse {
   0% {
