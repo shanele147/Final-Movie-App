@@ -35,7 +35,7 @@ function CategorySwiper(props) {
     // const { id, poster_path } = movie;
     return (
       <SwiperSlide key={index}>
-        <MovieItem movie={movie} />
+        <MovieItem movie={movie} onViewMore={onViewMore}/>
       </SwiperSlide>
     );
   });
@@ -59,10 +59,24 @@ function CategorySwiper(props) {
               onSlideChange={() => onSlideChangeHandler()}
               pagination={false}
               modules={[FreeMode, Pagination, Navigation]}
+              breakpoints={{
+                425: {
+                  slidesPerView: 3,
+                  spaceBetween: 20,
+                },
+
+                768: {
+                  slidesPerView: 4,
+                  spaceBetween: 30,
+                },
+                1024: {
+                  slidesPerView: 4,
+                  spaceBetween: 40,
+                },
+              }}
               className="mySwiper"
             >
               {movies}
-
               <div className={isFadeEnd ? "fadeEnd" : "fadeOut"}></div>
             </Swiper>
           )}

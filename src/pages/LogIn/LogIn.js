@@ -14,7 +14,7 @@ function LogIn(props) {
     ); 
 
     const [isModalShow, setModalShow] = useState(false);
-    const navigation = useNavigate();
+    const navigate = useNavigate();
 
     const onChangeHandler = (event) => {
         // console.log(event.target);
@@ -39,7 +39,8 @@ function LogIn(props) {
         props.addLoggedUser(user);
         setModalShow(true);
         setTimeout(() => { 
-            navigation("/");            
+            // navigate("/");            
+            navigate(-1);
         }, 1000);        
     }
 

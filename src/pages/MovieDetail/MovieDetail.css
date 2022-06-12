@@ -24,6 +24,7 @@ li:first-child {
   padding: 3rem 0;
   font-size: 1.25rem;
   line-height: 1.2;
+  margin-top: 4rem;
 }
 
 .detail-title {
@@ -118,14 +119,14 @@ iframe.youtube-trailer {
   width: 100%;
   height: auto;
   aspect-ratio: 16/9;
-  margin-top: 5rem;
+  margin: 5rem auto 3rem;
 }
 
 .castSwiper {
   height: 20rem;
   max-height: 20rem;
   margin-bottom: 1rem;
-  margin-top: 3rem;
+  /* margin-top: 3rem; */
 }
 
 .castSwiper .swiper-wrapper {
@@ -153,11 +154,12 @@ iframe.youtube-trailer {
 
 div.cast-name {
   width: 100%;
-  height: 32%;
+  height: 40%;
   position: absolute;
   bottom: 0;
   background: linear-gradient(0deg, #080808, transparent 95%);
-  padding-top: 2.5rem;
+  padding: 2rem 0.5rem 0.5rem;
+  font-size: 1.1rem;
 }
 
 div.cast-name h5 {

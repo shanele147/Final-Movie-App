@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_KEY, base_URL } from "../constant/const-key";
+import { API_KEY, base_URL, search_URL } from "../constant/const-key";
 export const MOVIE_UPCOMING = "upcoming";
 export const MOVIE_POPULAR = "popular";
 export const MOVIE_TOP_RATED = "top_rated";
@@ -12,6 +12,10 @@ const MovieService = {
       .get(`${base_URL}/${type}?api_key=${API_KEY}&language=en-US&page=1`)
       .then((response) => response.data.results);
   },
+  getMovieByTypePerPage: (type, page) => { 
+    return axios.get(`${base_URL}/${type}?api_key=${API_KEY}&language=en-US&page=${page}`)
+      .then((response) => response.data);
+  },
   getMovieDetail: (id) => {
     return axios
       .get(`${base_URL}/${id}?api_key=${API_KEY}&language=en-US`)
@@ -22,9 +26,9 @@ const MovieService = {
       .get(`${base_URL}/${id}/videos?api_key=${API_KEY}&language=en-US`)
       .then((response) => response.data.results);
   },
-  seachMovie: (query) => { 
-    return axios.get(`${base_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1`)
-    .then((response) => response.data.results);
+  searchMovie: (query) => { 
+    return axios.get(`${search_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1`)
+    .then((response) => response.data);
   },
   getMovieCast: (id) => { 
     return axios

@@ -95,3 +95,9 @@
 .fadeOut {
   display: none;
 }
+
+@media screen and (max-width: 768px) {
+  .category-swiper h1 {
+      font-size: 2.5rem;
+    }
+}

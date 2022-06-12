@@ -1,0 +1,20 @@
+.item-container {
+    position: relative;
+}
+
+.icon {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 1.5rem;
+}
+
+.icon:hover>[data-icon="heart"]>path {
+    fill: #ee560d;
+}
+
+@media screen and (max-width:640px) {
+    .icon {
+        font-size: 1rem;
+    }
+}

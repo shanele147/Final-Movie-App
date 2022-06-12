@@ -91,7 +91,8 @@ const MovieDetail = () => {
           </img>          
         </div>          
         <div className="cast-name">
-          <h5>{castName}</h5>
+          <p>{castName}</p><br></br>
+          <p>in <span style={{ color:"#fb9039", fontWeight:"bold"}}>{character}</span></p>          
         </div>
         </SwiperSlide>        
     );
@@ -101,7 +102,7 @@ return (
   <>
     <div className="container section-wrapper">
       <div className="row">
-        <div className="col-5 col-md-6 col-sm-12">
+        <div className="col-5 col-md-5 col-sm-12">
           <div className="hero-img">
             {
               poster_path ? (
@@ -110,16 +111,18 @@ return (
                   alt={title}
                 />
               ) : (
-                <Stack spacing={1}>
-                  <Skeleton variant="text" />
-                  <Skeleton variant="circular" width={40} height={40} />
-                  <Skeleton variant="rectangular" width={210} height={118} />
-                </Stack>
+                  <div>
+                    <Stack spacing={1}>
+                      <Skeleton variant="text" style={{ backgroundColor: "#d9cbbf4d", height: "2rem"}} />
+                      <Skeleton variant="circular" style={{ backgroundColor: "#d9cbbf4d", width:"3rem", height:"3rem" }}/>
+                      <Skeleton variant="rectangular" style={{ backgroundColor: "#d9cbbf4d", width: "14rem", height: "12rem"}}/>
+                    </Stack>
+                  </div>                
               )
             }
           </div>
         </div>
-        <div className="col-7 col-md-6 col-sm-12 movie-info">
+        <div className="col-7 col-md-7 col-sm-12 movie-info">
           <h2 className="big-title detail-title">{title}</h2>
           <h4>({released})</h4>
           <ul>{genreList}</ul>
@@ -148,6 +151,7 @@ return (
         </div>
         {/* cast slider */}
         <div className="col-lg-12 col-md-12 col-sm-12">
+          <h3>List of Casts</h3>
           <Swiper
             slidesPerView={2}
             spaceBetween={20}
@@ -174,7 +178,7 @@ return (
               },
             }}
             className="castSwiper"
-          >
+          >            
             {casts}
           </Swiper>
         </div>

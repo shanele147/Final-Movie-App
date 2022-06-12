@@ -16,7 +16,7 @@ function HeroSlider(props) {
     slidesToShow: 1,
     slidesToScroll: 1,
     centerMode: true,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2000,
     pauseOnHover: true,
     responsive: [
@@ -87,9 +87,14 @@ function HeroSlider(props) {
   });
 
   return (
-    <div id="movie-slider" className="w-100">
-      <Slider {...settings}>{movieShowList}</Slider>
+    <div className="container-fluid mt-5">
+      <div className="row">
+        <div id="movie-slider" className="col-12">
+          <Slider {...settings}>{movieShowList}</Slider>
+        </div>
+      </div>
     </div>
+    
   );
 }
 export default HeroSlider;
