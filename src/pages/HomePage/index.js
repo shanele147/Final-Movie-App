@@ -12,7 +12,8 @@ import {
 import CategorySwiper from "../../components/CategorySwiper";
 import "./HomePage.css";
 
-const HomePage = () => {
+const HomePage = (props) => {
+  const { onGetWishList } = props;
   const [popularMovies, setPopularMovies] = useState([]);
   const [upcomingMovies, setUpcomingMovies] = useState([]);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
@@ -27,7 +28,7 @@ const HomePage = () => {
   }; */
 
   const onViewMore = (id) => {
-    navigation(`/movieDetail/${id}`);
+    navigation(`/movies/${id}`);
   };
 
   async function fetchData() {
@@ -44,16 +45,17 @@ const HomePage = () => {
     setTopRatedMovies(movieTopRated);
     setNowPlaying(movieNowPlaying);
 
-    setTimeout(() => {
+    setLoading(false);
+    /* setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 2000); */
   }
 
   // call API
   useEffect(() => {
     fetchData();
   }, []);
-  console.log(loading);
+  console.log("Loading is: " + loading);
 
   return (
     <div>
@@ -63,21 +65,31 @@ const HomePage = () => {
         <Loader />
       ) : (
         [
-          <HeroSlider nowPlaying={nowPlaying} onViewMore={onViewMore} />,
+          <HeroSlider
+            nowPlaying={nowPlaying}
+            onViewMore={onViewMore}
+            key={MOVIE_NOW_PLAYING}
+          />,
           <CategorySwiper
+            key={MOVIE_UPCOMING}
             movieList={upcomingMovies}
             onViewMore={onViewMore}
             movieType={MOVIE_UPCOMING}
+            onGetWishList={onGetWishList}
           />,
           <CategorySwiper
+            key={MOVIE_POPULAR}
             movieList={popularMovies}
             onViewMore={onViewMore}
             movieType={MOVIE_POPULAR}
+            onGetWishList={onGetWishList}
           />,
           <CategorySwiper
+            key={MOVIE_TOP_RATED}
             movieList={topRatedMovies}
             onViewMore={onViewMore}
             movieType={MOVIE_TOP_RATED}
+            onGetWishList={onGetWishList}
           />,
         ]
       )}

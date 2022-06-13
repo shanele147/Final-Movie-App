@@ -1,0 +1,43 @@
+.category-btn {
+    display: block;
+    font-weight: 300;
+    font-size: 1.25rem;
+}
+
+.card-title {
+    font-size: 1.75rem;
+    color: #ee550e;
+}
+
+.card-img-top {
+    border-top-left-radius: calc(0.75rem - 1px);
+    border-top-right-radius: calc(0.75rem - 1px);
+    height: auto;
+    aspect-ratio: 3/4;
+}
+
+.card-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.MuiPagination-ul {
+    justify-content: center;
+}
+
+.MuiPagination-ul button {
+    color: #fff;
+}
+
+.MuiPagination-ul>li>.Mui-selected {
+    background-color: #454e5c;
+}
+
+.custom-pagination>.MuiPagination-ul>li>div {
+    color: #fff;
+}
+
+.custom-pagination {
+    margin: 3rem auto;
+}
