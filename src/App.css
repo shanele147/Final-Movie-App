@@ -25,12 +25,17 @@
 h1,
 h2,
 h3,
+<<<<<<< HEAD
 h4,
 h5 {
+=======
+h4 {
+>>>>>>> 1a52970503ca082c9a64979c439b3b84bbfab033
   font-family: "Kanit", "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
+<<<<<<< HEAD
 a,
 button,
 input,
@@ -40,6 +45,8 @@ input:focus {
   outline: none;
 }
 
+=======
+>>>>>>> 1a52970503ca082c9a64979c439b3b84bbfab033
 @media screen and (max-width: 1024px) {
   html {
     font-size: 15px;
