@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import MovieService from "../../services/MovieService";
@@ -47,15 +46,3 @@ function WishList(props) {
 }
 
 export default WishList;
-=======
-import React from 'react';
-import "./WishList.css"
-
-function WishList() {
-  return (
-    <div>WishList</div>
-  )
-}
-
-export default WishList
->>>>>>> 1a52970503ca082c9a64979c439b3b84bbfab033

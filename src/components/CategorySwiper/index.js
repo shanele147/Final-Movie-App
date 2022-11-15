@@ -13,11 +13,7 @@ import "./SwiperSlider.css";
 import { FreeMode, Pagination, Navigation } from "swiper";
 
 function CategorySwiper(props) {
-<<<<<<< HEAD
   const { movieList, onViewMore, movieType, onGetWishList } = props;
-=======
-  const { movieList, onViewMore, movieType } = props;
->>>>>>> 1a52970503ca082c9a64979c439b3b84bbfab033
   // movieList && console.log(movieList);
 
   const [isFadeEnd, setFadeEnd] = useState(true);
@@ -39,15 +35,12 @@ function CategorySwiper(props) {
     // const { id, poster_path } = movie;
     return (
       <SwiperSlide key={index}>
-<<<<<<< HEAD
         <MovieItem
           movie={movie}
           onViewMore={onViewMore}
           onGetWishList={onGetWishList}
         />
-=======
         <MovieItem movie={movie} onViewMore={onViewMore}/>
->>>>>>> 1a52970503ca082c9a64979c439b3b84bbfab033
       </SwiperSlide>
     );
   });

@@ -65,15 +65,11 @@ const HomePage = (props) => {
         <Loader />
       ) : (
         [
-<<<<<<< HEAD
           <HeroSlider
             nowPlaying={nowPlaying}
             onViewMore={onViewMore}
             key={MOVIE_NOW_PLAYING}
           />,
-=======
-            <HeroSlider nowPlaying={nowPlaying} onViewMore={onViewMore} key={ MOVIE_NOW_PLAYING}/>,
->>>>>>> 1a52970503ca082c9a64979c439b3b84bbfab033
           <CategorySwiper
             key={MOVIE_UPCOMING}
             movieList={upcomingMovies}
